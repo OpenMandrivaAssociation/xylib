@@ -4,7 +4,7 @@
 
 Name:		xylib
 Version:	0.5
-Release:	%mkrel 1
+Release:	%mkrel 2
 Summary:	A C++ x-y data reading library
 License:	LGPLv2
 Group:		System/Libraries
@@ -89,9 +89,6 @@ This package contains the development files for xylib.
 %setup -q
 
 %build
-%ifarch x86_64
-export CXXFLAGS="%{optflags} -fPIC"
-%endif
 %configure2_5x --disable-static
 %make
 
