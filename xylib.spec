@@ -1,18 +1,18 @@
-%define major 1
-%define libname %mklibname xy %{major}
-%define develname %mklibname xy -d
+%define		major 3
+%define		libname %mklibname xy %{major}
+%define		develname %mklibname xy -d
 
 Name:		xylib
-Version:	0.5
-Release:	%mkrel 3
+Version:	0.8
+Release:	%mkrel 1
 Summary:	A C++ x-y data reading library
 License:	LGPLv2
 Group:		System/Libraries
 Url:		http://www.unipress.waw.pl/fityk/xylib/
 Source0:	http://downloads.sourceforge.net/fityk/%{name}-%{version}.tar.bz2
-BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
-
 BuildRequires:	boost-devel
+BuildRequires:	zlib-devel
+BuildRequires:	bzip2-devel
 
 %description
 Xylib is a portable C++ library for reading files that contain x-y 
@@ -93,11 +93,11 @@ This package contains the development files for xylib.
 %make
 
 %install
-rm -rf %{buildroot}
+%__rm -rf %{buildroot}
 %makeinstall_std
 
 %clean
-rm -rf %{buildroot}
+%__rm -rf %{buildroot}
 
 %files util
 %defattr(-,root,root)
@@ -107,10 +107,12 @@ rm -rf %{buildroot}
 %files -n %{libname}
 %defattr(-,root,root,-)
 %doc README
-%{_libdir}/libxy.so.*
+%{_libdir}/libxy.so.%{major}*
 
 %files -n %{develname}
 %defattr(-,root,root,-)
 %{_libdir}/libxy.so
+%if %{mdvver} <= 201100
 %{_libdir}/libxy.la
+%endif
 %{_includedir}/*
