@@ -3,8 +3,8 @@
 %define		develname %mklibname xy -d
 
 Name:		xylib
-Version:	0.8
-Release:	%mkrel 1
+Version:	1.1
+Release:	1
 Summary:	A C++ x-y data reading library
 License:	LGPLv2
 Group:		System/Libraries
@@ -41,15 +41,15 @@ Supported formats:
 %package util
 Summary:	An utility to convert files supported by xylib to TSV
 Group:		Sciences/Chemistry
-Provides:	xyconv
+Provides:	xyconv = %{version}-%{release}
 
 %description util
 This package contains xyconv, an utility provided with the xylib 
 library to convert the files it supports to TSV.
 
 %package -n %{libname}
-Summary:	%{summary}
-Group:		%{group}
+Summary:	A C++ x-y data reading library
+Group:		System/Libraries
 
 %description -n %{libname}
 Xylib is a portable C++ library for reading files that contain x-y
@@ -93,26 +93,16 @@ This package contains the development files for xylib.
 %make
 
 %install
-%__rm -rf %{buildroot}
 %makeinstall_std
 
-%clean
-%__rm -rf %{buildroot}
-
 %files util
-%defattr(-,root,root)
 %{_bindir}/xyconv
 %{_mandir}/man1/xyconv*
 
 %files -n %{libname}
-%defattr(-,root,root,-)
-%doc README
 %{_libdir}/libxy.so.%{major}*
 
 %files -n %{develname}
-%defattr(-,root,root,-)
 %{_libdir}/libxy.so
-%if %{mdvver} <= 201100
-%{_libdir}/libxy.la
-%endif
 %{_includedir}/*
+
