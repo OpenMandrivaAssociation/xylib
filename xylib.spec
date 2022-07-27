@@ -3,13 +3,13 @@
 %define		develname %mklibname xy -d
 
 Name:		xylib
-Version:	1.1
-Release:	2
+Version:	1.6
+Release:	1
 Summary:	A C++ x-y data reading library
 License:	LGPLv2
 Group:		System/Libraries
 Url:		http://www.unipress.waw.pl/fityk/xylib/
-Source0:	http://downloads.sourceforge.net/fityk/%{name}-%{version}.tar.bz2
+Source0:	https://github.com/wojdyr/xylib/releases/download/v%{version}/xylib-%{version}.tar.bz2
 BuildRequires:	boost-devel
 BuildRequires:	zlib-devel
 BuildRequires:	bzip2-devel
