@@ -8,7 +8,7 @@ Release:	1
 Summary:	A C++ x-y data reading library
 License:	LGPLv2
 Group:		System/Libraries
-Url:		http://www.unipress.waw.pl/fityk/xylib/
+Url:		https://www.unipress.waw.pl/fityk/xylib/
 Source0:	https://github.com/wojdyr/xylib/releases/download/v%{version}/xylib-%{version}.tar.bz2
 BuildRequires:	boost-devel
 BuildRequires:	zlib-devel
